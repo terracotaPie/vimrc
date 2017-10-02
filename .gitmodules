@@ -1,21 +1,18 @@
 [submodule "bundle/goyo.vim"]
 	path = bundle/goyo.vim
-	url = ./bundle/ctrlp.vim
+	url = https://github.com/junegunn/goyo.vim.git 
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
 [submodule "bundle/ctrlp.vim"]
 	path = bundle/ctrlp.vim
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git 
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/nerdcommenter
-[submodule "bundle/vim"]
-	path = bundle/vim
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/vim
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git 
 [submodule "bundle/vim-autoformat"]
 	path = bundle/vim-autoformat
 	url = /h/u10/g5/00/borkhodo/.vim/bundle/vim-autoformat
