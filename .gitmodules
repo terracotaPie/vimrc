@@ -2,16 +2,16 @@
 	path = bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git 
 [submodule "bundle/syntastic"]
-	path = bundle/syntastic
+	path = pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
 [submodule "bundle/ctrlp.vim"]
-	path = bundle/ctrlp.vim
+	path = pack/plugins/start/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+	path = pack/plugins/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-airline"]
-	path = bundle/vim-airline
+	path = pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
 [submodule "bundle/vim-autoformat"]
 	path = bundle/vim-autoformat
@@ -20,13 +20,13 @@
 	path = bundle/vim-colorschemes
 	url = /h/u10/g5/00/borkhodo/.vim/bundle/vim-colorschemes
 [submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
+	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
+	path = pack/plugins/start/vim-mardown
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "bundle/vim-sensible"]
-	path = bundle/vim-sensible
+	path = pack/plugins/start/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
@@ -35,14 +35,14 @@
 	path = bundle/vimshell.vim
 	url = /h/u10/g5/00/borkhodo/.vim/bundle/vimshell.vim
 [submodule "bundle/goyo"]
-	path = bundle/goyo
+	path = pack/plugins/start/goyo
 	url = https://github.com/junegunn/goyo.vim.git
 [submodule "bundle/dracula"]
-	path = bundle/dracula
+	path = pack/plugins/start/dracula
 	url = https://github.com/dracula/vim.git
 [submodule "bundle/autoformat"]
-	path = bundle/autoformat
+	path = pack/plugins/start/autoformat
 	url = https://github.com/Chiel92/vim-autoformat.git
 [submodule "bundle/papercolor-theme"]
-	path = bundle/papercolor-theme
+	path = pack/plugins/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme.git
