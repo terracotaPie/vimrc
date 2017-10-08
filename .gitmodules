@@ -43,3 +43,6 @@
 [submodule "bundle/autoformat"]
 	path = bundle/autoformat
 	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule "bundle/papercolor-theme"]
+	path = bundle/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme.git
