@@ -8,13 +8,15 @@ set listchars=tab:>·,trail:~,extends:>,precedes:<
 "Keybindings
 let mapleader=","
 "Eye candy
-colorscheme dracula
+colorscheme PaperColor
+set background=light
 
 "Ctrl-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 "Airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme = "aurora"
 
 "Zenmode
 let g:zenmode_background = "light"
