@@ -10,6 +10,7 @@ let mapleader=","
 "Eye candy
 colorscheme PaperColor
 set background=light
+set t_Co=256
 
 "Ctrl-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -17,6 +18,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 "Airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = "aurora"
+set noshowmode
 
 "Zenmode
 let g:zenmode_background = "light"
@@ -35,3 +37,4 @@ let g:syntastic_python_checkers = ['flake8']
 
 "C
 au BufWrite * :Autoformat
+
