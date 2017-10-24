@@ -1,6 +1,6 @@
 [submodule "bundle/goyo.vim"]
 	path = bundle/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git 
+	url = https://github.com/junegunn/goyo.vim.git
 [submodule "bundle/syntastic"]
 	path = pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
@@ -55,3 +55,6 @@
 [submodule "pack/plugins/start/vim-pencil"]
 	path = pack/plugins/start/vim-pencil
 	url = https://github.com/reedes/vim-pencil.git
+[submodule "pack/plugins/start/auto-pairs"]
+	path = pack/plugins/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
