@@ -8,9 +8,13 @@ set listchars=tab:>·,trail:~,extends:>,precedes:<
 "Keybindings
 let mapleader=","
 "Eye candy
-colorscheme PaperColor
+colorscheme gruvbox
 set background=light
-set t_Co=256
+if has("termguicolors")     " set true colors
+	set termguicolors
+else
+	set t_Co=256
+endif
 
 "Ctrl-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -38,3 +42,11 @@ let g:syntastic_python_checkers = ['flake8']
 "C
 au BufWrite * :Autoformat
 
+"Markdown
+let g:vim_markdown_folding_disabled = 1
+augroup lexical
+	autocmd!
+	autocmd FileType markdown,mkd call lexical#init()
+	autocmd FileType textile call lexical#init()
+	autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
