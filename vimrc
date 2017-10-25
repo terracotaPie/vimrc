@@ -9,7 +9,7 @@ set listchars=tab:>·,trail:~,extends:>,precedes:<
 let mapleader=","
 "Eye candy
 colorscheme gruvbox
-set background=light
+set background=dark
 if has("termguicolors")     " set true colors
 	set termguicolors
 else
@@ -21,11 +21,11 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 "Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = "aurora"
+let g:airline_theme = "solarized"
 set noshowmode
 
 "Zenmode
-let g:zenmode_background = "light"
+let g:zenmode_background = "dark"
 let g:zenmode_colorscheme = "default"
 
 "Syntastic
