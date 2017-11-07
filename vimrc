@@ -4,6 +4,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set listchars=tab:>·,trail:~,extends:>,precedes:<
+set hlsearch
 
 "Keybindings
 let mapleader=","
@@ -21,7 +22,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 "Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = "solarized"
+let g:airline_theme = "base16_mocha"
 set noshowmode
 
 "Zenmode
@@ -46,7 +47,12 @@ au BufWrite * :Autoformat
 let g:vim_markdown_folding_disabled = 1
 augroup lexical
 	autocmd!
-	autocmd FileType markdown,mkd call lexical#init()
-	autocmd FileType textile call lexical#init()
+	autocmd FileType markdown,mkd,tex,textile call lexical#init()
+				\ | call pencil#init()
 	autocmd FileType text call lexical#init({ 'spell': 0 })
 augroup END
+
+"macvim
+if has('gui_running')
+	set guifont=mononoki-Regular\ Nerd\ Font\ Complete:h14
+endif

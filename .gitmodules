@@ -4,9 +4,6 @@
 [submodule "bundle/syntastic"]
 	path = pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
-[submodule "bundle/ctrlp.vim"]
-	path = pack/plugins/start/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/nerdcommenter"]
 	path = pack/plugins/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
@@ -67,3 +64,15 @@
 [submodule "pack/plugins/start/gruvbox"]
 	path = pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "pack/plugins/start/vim-rhubarb"]
+	path = pack/plugins/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "pack/plugins/start/denite.nvim"]
+	path = pack/plugins/start/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
+[submodule "pack/plugins/start/ctrlp.vim"]
+	path = pack/plugins/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "pack/plugins/start/Vim-Jinja2-Syntax"]
+	path = pack/plugins/start/Vim-Jinja2-Syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
