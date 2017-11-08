@@ -25,12 +25,6 @@
 [submodule "bundle/vim-sensible"]
 	path = pack/plugins/start/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
-[submodule "bundle/vimproc.vim"]
-	path = bundle/vimproc.vim
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/vimproc.vim
-[submodule "bundle/vimshell.vim"]
-	path = bundle/vimshell.vim
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/vimshell.vim
 [submodule "bundle/goyo"]
 	path = pack/plugins/start/goyo
 	url = https://github.com/junegunn/goyo.vim.git
@@ -70,9 +64,9 @@
 [submodule "pack/plugins/start/denite.nvim"]
 	path = pack/plugins/start/denite.nvim
 	url = https://github.com/Shougo/denite.nvim.git
-[submodule "pack/plugins/start/ctrlp.vim"]
-	path = pack/plugins/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "pack/plugins/start/Vim-Jinja2-Syntax"]
 	path = pack/plugins/start/Vim-Jinja2-Syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "pack/plugins/start/taglist.vim"]
+	path = pack/plugins/start/taglist.vim
+	url = https://github.com/j5shi/taglist.vim.git
