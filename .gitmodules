@@ -10,12 +10,6 @@
 [submodule "bundle/vim-airline"]
 	path = pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "bundle/vim-autoformat"]
-	path = bundle/vim-autoformat
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/vim-autoformat
-[submodule "bundle/vim-colorschemes"]
-	path = bundle/vim-colorschemes
-	url = /h/u10/g5/00/borkhodo/.vim/bundle/vim-colorschemes
 [submodule "bundle/vim-fugitive"]
 	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
