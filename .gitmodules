@@ -1,9 +1,6 @@
 [submodule "bundle/goyo.vim"]
 	path = bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
-[submodule "/h/u10/g5/00/borkhodo/.vim/pack/minpac/opt/minpac"]
-	path = /h/u10/g5/00/borkhodo/.vim/pack/minpac/opt/minpac
-	url = https://github.com/k-takata/minpac.git
 [submodule "pack/minpac/opt/minpac"]
 	path = pack/minpac/opt/minpac
 	url = https://github.com/k-takata/minpac.git
