@@ -21,9 +21,6 @@ else
 	set t_Co=256
 endif
 
-"Ctrl-P
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
 "Airline
 let g:airline_powerline_fonts = 0
 let g:airline_theme = "base16_mocha"
@@ -46,6 +43,8 @@ let g:syntastic_python_checkers = ['flake8']
 
 "C
 au BufWrite * :Autoformat
+let Tlist_Close_On_Select = 1
+
 
 "Markdown
 let g:vim_markdown_folding_disabled = 1
