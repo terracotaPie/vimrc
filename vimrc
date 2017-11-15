@@ -1,7 +1,6 @@
 "Minpac
 packadd minpac
 call minpac#init()
-
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('junegunn/goyo.vim')
 call minpac#add('scrooloose/nerdcommenter')
@@ -23,9 +22,12 @@ call minpac#add('morhetz/gruvbox')
 call minpac#add('tpope/vim-rhubarb')
 call minpac#add('Shougo/denite.nvim')
 call minpac#add('Glench/Vim-Jinja2-Syntax')
-call minpac#add('davidhalter/jedi-vim')
 call minpac#add('j5shi/taglist.vim')
 call minpac#add('w0rp/ale')
+call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
+call minpac#add('zchee/deoplete-jedi')
+"end
+
 
 syntax on
 filetype plugin indent on
@@ -39,7 +41,7 @@ set hlsearch
 let mapleader=","
 "Eye candy
 colorscheme gruvbox
-set background=light
+set background=dark
 hi Normal guibg=NONE ctermbg=none
 if has("termguicolors")     " set true colors
 	set termguicolors
@@ -56,16 +58,6 @@ set noshowmode
 let g:zenmode_background = "light"
 let g:zenmode_colorscheme = "default"
 
-"Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
 let g:ale_linters = {
 			\   'python': ['flake8'],
 			\}
@@ -90,7 +82,14 @@ if has('gui_running')
 	set guifont=mononoki-Regular\ Nerd\ Font\ Complete:h14
 endif
 
+"deoplete
+let g:deoplete#enable_at_startup = 1
+
 "keymappings
+" basic
+:nmap ; :
+
+"Plugins
 nnoremap <c-g> :TlistOpen<CR>
 nnoremap <c-p> :Denite file_rec<CR>
 nnoremap <c-b> :Denite buffer<CR>
