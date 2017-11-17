@@ -103,6 +103,9 @@ nnoremap <silent> <c-g> :TlistOpen<CR>
 nnoremap <silent> <c-p> :Denite file_rec<CR>
 nnoremap <silent> <c-b> :Denite buffer<CR>
 
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 packloadall
 call denite#custom#map(
 			\ 'insert',
