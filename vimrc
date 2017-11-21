@@ -6,6 +6,7 @@ call minpac#add('junegunn/goyo.vim')
 call minpac#add('scrooloose/nerdcommenter')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-unimpaired')
 call minpac#add('plasticboy/vim-markdown')
 call minpac#add('tpope/vim-sensible')
 call minpac#add('junegunn/goyo.vim')
@@ -26,6 +27,7 @@ call minpac#add('j5shi/taglist.vim')
 call minpac#add('w0rp/ale')
 call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
 call minpac#add('zchee/deoplete-jedi')
+call minpac#add('lervag/vimtex')
 "end
 
 
@@ -40,7 +42,7 @@ set hlsearch
 "Keybindings
 let mapleader=","
 "Eye candy
-colorscheme gruvbox
+colorscheme dracula
 set background=dark
 hi Normal guibg=NONE ctermbg=none
 if has("termguicolors")     " set true colors
@@ -51,7 +53,7 @@ endif
 
 "Airline
 let g:airline_powerline_fonts = 0
-let g:airline_theme = "base16_mocha"
+let g:airline_theme = "dracula"
 set noshowmode
 
 "Zenmode
@@ -64,7 +66,7 @@ let g:ale_linters = {
 
 
 "C
-au BufWrite * :Autoformat
+"au BufWrite *.py *.c *.h :Autoformat
 let Tlist_Close_On_Select = 1
 
 
@@ -83,16 +85,23 @@ if has('gui_running')
 endif
 
 "deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
+
+" Latex settings
+" Disable polyglot to avoid conflicts with vimtex
+let g:polyglot_disabled = ['latex', 'markdown']
+
+"python
+let g:python2_host_prog = '/usr/local/bin/python2'
 
 "keymappings
 " basic
-:nmap ; :
+nmap ; :
 
 "Plugins
-nnoremap <c-g> :TlistOpen<CR>
-nnoremap <c-p> :Denite file_rec<CR>
-nnoremap <c-b> :Denite buffer<CR>
+nnoremap <silent> <c-g> :TlistOpen<CR>
+nnoremap <silent> <c-p> :Denite file_rec<CR>
+nnoremap <silent> <c-b> :Denite buffer<CR>
 
 packloadall
 call denite#custom#map(
