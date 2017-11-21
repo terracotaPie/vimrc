@@ -9,7 +9,6 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('plasticboy/vim-markdown')
 call minpac#add('tpope/vim-sensible')
-call minpac#add('junegunn/goyo.vim')
 call minpac#add('dracula/vim')
 call minpac#add('Chiel92/vim-autoformat')
 call minpac#add('NLKNguyen/papercolor-theme')
@@ -56,10 +55,6 @@ let g:airline_powerline_fonts = 0
 let g:airline_theme = "dracula"
 set noshowmode
 
-"Zenmode
-let g:zenmode_background = "light"
-let g:zenmode_colorscheme = "default"
-
 let g:ale_linters = {
 			\   'python': ['flake8'],
 			\   'c': ['gcc']
@@ -74,12 +69,12 @@ let Tlist_Close_On_Select = 1
 
 "Markdown
 let g:vim_markdown_folding_disabled = 1
-augroup lexical
-	autocmd!
-	autocmd FileType markdown,mkd,tex,textile call lexical#init()
-				\ | call pencil#init()
-	autocmd FileType text call lexical#init({ 'spell': 0 })
-augroup END
+"augroup lexical
+	"autocmd!
+	"autocmd FileType markdown,mkd,tex,textile call lexical#init()
+				"\ | call pencil#init()
+	"autocmd FileType text call lexical#init({ 'spell': 0 })
+"augroup END
 
 "macvim
 if has('gui_running')
