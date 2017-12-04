@@ -62,7 +62,9 @@ let g:zenmode_colorscheme = "default"
 
 let g:ale_linters = {
 			\   'python': ['flake8'],
+			\   'c': ['gcc']
 			\}
+let g:ale_c_gcc_options = "-std=c11 -Wall -Wextra -std=gnu99 -pthread -lrt"
 
 
 "C
