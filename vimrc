@@ -26,7 +26,6 @@ call minpac#add('j5shi/taglist.vim')
 call minpac#add('w0rp/ale')
 call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
 call minpac#add('zchee/deoplete-jedi')
-call minpac#add('Yggdroot/indentLine')
 call minpac#add('lervag/vimtex')
 "end
 
