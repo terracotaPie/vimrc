@@ -26,6 +26,7 @@ call minpac#add('j5shi/taglist.vim')
 call minpac#add('w0rp/ale')
 call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
 call minpac#add('zchee/deoplete-jedi')
+call minpac#add('Yggdroot/indentLine')
 call minpac#add('lervag/vimtex')
 "end
 
@@ -42,13 +43,7 @@ set hlsearch
 let mapleader=","
 "Eye candy
 colorscheme dracula
-set background=dark
-hi Normal guibg=NONE ctermbg=none
-if has("termguicolors")     " set true colors
-	set termguicolors
-else
-	set t_Co=256
-endif
+set termguicolors
 
 "Airline
 let g:airline_powerline_fonts = 0
@@ -70,10 +65,10 @@ let Tlist_Close_On_Select = 1
 "Markdown
 let g:vim_markdown_folding_disabled = 1
 "augroup lexical
-	"autocmd!
-	"autocmd FileType markdown,mkd,tex,textile call lexical#init()
-				"\ | call pencil#init()
-	"autocmd FileType text call lexical#init({ 'spell': 0 })
+"autocmd!
+"autocmd FileType markdown,mkd,tex,textile call lexical#init()
+"\ | call pencil#init()
+"autocmd FileType text call lexical#init({ 'spell': 0 })
 "augroup END
 
 "macvim
@@ -81,12 +76,9 @@ if has('gui_running')
 	set guifont=mononoki-Regular\ Nerd\ Font\ Complete:h14
 endif
 
-"deoplete
-"let g:deoplete#enable_at_startup = 1
-
 " Latex settings
 " Disable polyglot to avoid conflicts with vimtex
-let g:polyglot_disabled = ['latex', 'markdown']
+let g:polyglot_disabled = ['latex', 'tex']
 
 "python
 let g:python2_host_prog = '/usr/local/bin/python2'
@@ -102,6 +94,16 @@ nnoremap <silent> <c-b> :Denite buffer<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+	let myUndoDir = expand(vimDir . '/undodir')
+	" Create dirs
+	call system('mkdir ' . myUndoDir)
+	let &undodir = myUndoDir
+	set undofile
+endif
 
 packloadall
 call denite#custom#map(
@@ -116,3 +118,20 @@ call denite#custom#map(
 			\ '<denite:move_to_previous_line>',
 			\ 'noremap'
 			\)
+
+"deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
+if !exists('g:deoplete#omni#input_patterns')
+	let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+let g:vimtex_compiler_progname = "nvr"
