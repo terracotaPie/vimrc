@@ -27,6 +27,8 @@ call minpac#add('w0rp/ale')
 call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
 call minpac#add('zchee/deoplete-jedi')
 call minpac#add('lervag/vimtex')
+call minpac#add('easymotion/vim-easymotion')
+call minpac#add('Zuckonit/vim-airline-tomato')
 "end
 
 
@@ -37,21 +39,23 @@ set softtabstop=2
 set shiftwidth=2
 set listchars=tab:>·,trail:~,extends:>,precedes:<
 set hlsearch
+set visualbell
 
 "Keybindings
 let mapleader=","
 "Eye candy
-colorscheme dracula
+colorscheme gruvbox
 set termguicolors
 
 "Airline
 let g:airline_powerline_fonts = 0
-let g:airline_theme = "dracula"
+let g:airline_theme = "gruvbox"
 set noshowmode
 
 let g:ale_linters = {
 			\   'python': ['flake8'],
-			\   'c': ['gcc']
+			\   'c': ['gcc'],
+			\   'latex': ['proselint']
 			\}
 let g:ale_c_gcc_options = "-std=c11 -Wall -Wextra -std=gnu99 -pthread -lrt"
 
@@ -63,12 +67,11 @@ let Tlist_Close_On_Select = 1
 
 "Markdown
 let g:vim_markdown_folding_disabled = 1
-"augroup lexical
-"autocmd!
-"autocmd FileType markdown,mkd,tex,textile call lexical#init()
-"\ | call pencil#init()
-"autocmd FileType text call lexical#init({ 'spell': 0 })
-"augroup END
+augroup lexical
+autocmd!
+autocmd FileType markdown,mkd,tex,textile call lexical#init()
+\ | :SoftPencil
+augroup END
 
 "macvim
 if has('gui_running')
@@ -85,6 +88,7 @@ let g:python2_host_prog = '/usr/local/bin/python2'
 "keymappings
 " basic
 nmap ; :
+vmap ; :
 
 "Plugins
 nnoremap <silent> <c-g> :TlistOpen<CR>
@@ -93,6 +97,7 @@ nnoremap <silent> <c-b> :Denite buffer<CR>
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+map <Leader> <Plug>(easymotion-prefix)
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
 " Keep undo history across sessions by storing it in a file
@@ -134,3 +139,5 @@ function! s:check_back_space() abort "{{{
 	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 let g:vimtex_compiler_progname = "nvr"
+let g:tomato#remind = "☻"
+let g:tomato#show_clock = 1
