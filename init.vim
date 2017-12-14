@@ -47,3 +47,5 @@ if has('persistent_undo')
 	let &undodir = myUndoDir
 	set undofile
 endif
+" Have to set leader before plugins load
+let mapleader=","

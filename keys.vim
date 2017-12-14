@@ -1,7 +1,6 @@
 " Default extensions
 nmap ; :
 vmap ; :
-let mapleader=","
 " Plugins' extensions
 nnoremap <silent> <c-g> :TlistOpen<CR>
 nnoremap <silent> <c-p> :Denite file_rec<CR>
