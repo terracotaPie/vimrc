@@ -8,6 +8,10 @@ if exists('g:deoplete')
 	endif
 	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 endif
+function s:check_backspace() abort
+		let ccc = col('.')
+		return !ccc || getline('.')[ccc-1] =~ '\s'
+endfunction
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<TAB>" :
@@ -37,4 +41,9 @@ let g:ale_c_gcc_options = "-std=c11 -Wall -Wextra -std=gnu99 -pthread -lrt"
 
 "C
 let Tlist_Close_On_Select = 1
+
+" Orgmode
+"
+let g:org_indent = 1
+let g:org_agenda_files = ['~/Development/agenda/*.org']
 

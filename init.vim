@@ -4,6 +4,7 @@ call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('junegunn/goyo.vim')
 call minpac#add('scrooloose/nerdcommenter')
+call minpac#add('mattn/calendar-vim')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-unimpaired')
@@ -26,8 +27,11 @@ call minpac#add('j5shi/taglist.vim')
 call minpac#add('w0rp/ale')
 call minpac#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
 call minpac#add('zchee/deoplete-jedi')
+call minpac#add('tweekmonster/deoplete-clang2')
 call minpac#add('lervag/vimtex')
 call minpac#add('easymotion/vim-easymotion')
+call minpac#add('jceb/vim-orgmode')
+call minpac#add('tpope/vim-speeddating')
 "end
 
 " Managing tabs and spaces
@@ -49,3 +53,4 @@ if has('persistent_undo')
 endif
 " Have to set leader before plugins load
 let mapleader=","
+let maplocalleader = ","
