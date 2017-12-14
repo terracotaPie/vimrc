@@ -1,3 +1,4 @@
+packloadall
 " Deoplete settings
 if exists('g:deoplete')
 	let g:deoplete#enable_at_startup = 1

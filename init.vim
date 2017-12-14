@@ -29,7 +29,6 @@ call minpac#add('zchee/deoplete-jedi')
 call minpac#add('lervag/vimtex')
 call minpac#add('easymotion/vim-easymotion')
 "end
-packloadall
 
 " Managing tabs and spaces
 set tabstop=2
