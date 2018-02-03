@@ -8,18 +8,10 @@ if exists('g:deoplete')
 	endif
 	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 endif
-function s:check_backspace() abort
-		let ccc = col('.')
-		return !ccc || getline('.')[ccc-1] =~ '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ deoplete#mappings#manual_complete()
 let g:vimtex_compiler_progname = "nvr"
 " Latex settings
 " Disable polyglot to avoid conflicts with vimtex
-let g:polyglot_disabled = ['latex', 'tex']
+let g:polyglot_disabled = ['latex', 'tex', 'python-ident']
 
 " Python
 let g:python2_host_prog = '/usr/local/bin/python2'

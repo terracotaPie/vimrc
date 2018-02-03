@@ -22,8 +22,3 @@ call denite#custom#map(
 			\ '<denite:move_to_previous_line>',
 			\ 'noremap'
 			\)
-
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ deoplete#mappings#manual_complete()
