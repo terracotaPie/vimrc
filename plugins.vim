@@ -27,7 +27,8 @@ augroup END
 let g:ale_linters = {
 			\   'python': ['flake8'],
 			\   'c': ['gcc'],
-			\   'latex': ['proselint']
+			\   'latex': ['proselint'],
+			\		'rust': ['rls']
 			\}
 let g:ale_c_gcc_options = "-std=c11 -Wall -Wextra -std=gnu99 -pthread -lrt"
 
