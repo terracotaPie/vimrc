@@ -40,3 +40,5 @@ let Tlist_Close_On_Select = 1
 let g:org_indent = 1
 let g:org_agenda_files = ['~/Development/agenda/*.org']
 
+" Thesaurus
+nnoremap zk :OnlineThesaurusCurrentWord<CR>
