@@ -31,9 +31,8 @@ call minpac#add('lervag/vimtex')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('jceb/vim-orgmode')
 call minpac#add('tpope/vim-speeddating')
-call minpac#add('rust-lang/rust.vim')
 call minpac#add('beloglazov/vim-online-thesaurus')
->>>>>>> Add thesaurus
+call minpac#add('rust-lang/rust.vim')
 "end
 
 " Managing tabs and spaces
