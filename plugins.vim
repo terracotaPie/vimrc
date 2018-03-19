@@ -1,13 +1,11 @@
 packloadall
 " Deoplete settings
-if exists('g:deoplete')
-	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#sources#jedi#python_path = '/usr/local/bin/python3'
-	if !exists('g:deoplete#omni#input_patterns')
-		let g:deoplete#omni#input_patterns = {}
-	endif
-	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+let g:deoplete#enable_at_startup = 0
+let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
+if !exists('g:deoplete#omni#input_patterns')
+	let g:deoplete#omni#input_patterns = {}
 endif
+let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 let g:vimtex_compiler_progname = "nvr"
 " Latex settings
 " Disable polyglot to avoid conflicts with vimtex
