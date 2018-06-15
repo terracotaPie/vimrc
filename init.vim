@@ -38,6 +38,8 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('j5shi/taglist.vim')
     call dein#add('w0rp/ale')
     call dein#add('sbdchd/neoformat')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('Galooshi/vim-import-js')
 
   " Required:
   call dein#end()
@@ -70,12 +72,14 @@ if has('persistent_undo')
 	let &undodir = myUndoDir
 	set undofile
 endif
-colorscheme dracula
-set termguicolors
 
 "EyeCandy
+set termguicolors
+colorscheme gruvbox
+set background=dark
+
 let g:airline_powerline_fonts = 0
-let g:airline_theme = "dracula"
+let g:airline_theme = "gruvbox"
 set noshowmode
 
 let g:PaperColor_Theme_Options = {
@@ -138,7 +142,9 @@ nnoremap <home> <nop>
 nnoremap <end> <nop>
 
 nnoremap <backspace> <nop>
-nnoremap <return> <nop>
 nnoremap <tab> <nop>
 
 nnoremap <del> <nop>
+
+" neoformat
+noremap <C-l> :Neoformat<CR>
