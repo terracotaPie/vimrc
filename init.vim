@@ -18,14 +18,12 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('junegunn/goyo.vim')
     call dein#add('majutsushi/tagbar')
     call dein#add('scrooloose/nerdcommenter')
-    call dein#add('vim-airline/vim-airline')
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-unimpaired')
     call dein#add('plasticboy/vim-markdown')
     call dein#add('tpope/vim-sensible')
     call dein#add('dracula/vim')
     call dein#add('NLKNguyen/papercolor-theme')
-    call dein#add('vim-airline/vim-airline-themes')
     call dein#add('tpope/vim-surround')
     call dein#add('reedes/vim-pencil')
     call dein#add('jiangmiao/auto-pairs')
@@ -40,11 +38,19 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('sbdchd/neoformat')
     call dein#add('airblade/vim-gitgutter')
     call dein#add('Galooshi/vim-import-js')
+    call dein#add('ludovicchabant/vim-gutentags')
+    call dein#add('itchyny/lightline.vim')
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('lifepillar/vim-solarized8')
+    call dein#add('tpope/vim-repeat')
 
   " Required:
   call dein#end()
   call dein#save_state()
 endif
+
+let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Required:
 filetype plugin indent on
@@ -74,13 +80,14 @@ if has('persistent_undo')
 endif
 
 "EyeCandy
+colorscheme solarized8_dark
+"set background=dark
 set termguicolors
-colorscheme gruvbox
-set background=dark
 
-let g:airline_powerline_fonts = 0
-let g:airline_theme = "gruvbox"
 set noshowmode
+let g:lightline = {
+  \ 'colorscheme': 'solarized'
+\}
 
 let g:PaperColor_Theme_Options = {
     \   'theme': {
@@ -103,7 +110,7 @@ call denite#custom#source(
 " use ag for content search
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-    \ ['-i', '--vimgrep'])
+    \ ['-i', '--vimgrep', '--ignore-dir', '__tests__', '-C'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
@@ -147,4 +154,27 @@ nnoremap <tab> <nop>
 nnoremap <del> <nop>
 
 " neoformat
-noremap <C-l> :Neoformat<CR>
+noremap <C-l> :Neoformat eslint_d<CR>
+
+" lightline
+let g:lightline.active = {
+    \ 'left': [ [ 'mode', 'paste' ],
+    \           [ 'readonly', 'absolutepath', 'modified' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ],
+    \          ]
+    \ }
+let g:lightline.inactive = {
+    \ 'left': [ [ 'filename' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ] ] }
+let g:lightline.tabline = {
+    \ 'left': [ [ 'tabs' ] ],
+    \ 'right': [ [ 'close' ] ] }
+augroup MyGutentagsStatusLineRefresher
+    autocmd!
+    autocmd User GutentagsUpdating call lightline#update()
+    autocmd User GutentagsUpdated call lightline#update()
+augroup END
+
+let g:deoplete#enable_at_startup = 1
