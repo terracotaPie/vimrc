@@ -43,6 +43,8 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('lifepillar/vim-solarized8')
     call dein#add('tpope/vim-repeat')
+    call dein#add('pangloss/vim-javascript')
+    call dein#add('mxw/vim-jsx')
 
   " Required:
   call dein#end()
@@ -67,6 +69,12 @@ nmap ; :
 vmap ; :
 let mapleader=","
 let maplocalleader = ","
+set relativenumber
+set number
+set cursorline
+" turn off gutentags while commiting
+au FileType gitcommit,gitrebase let g:gutentags_enabled=0
+
 
 " Persistent undo files
 let vimDir = '$HOME/.vim'
@@ -171,6 +179,7 @@ let g:lightline.inactive = {
 let g:lightline.tabline = {
     \ 'left': [ [ 'tabs' ] ],
     \ 'right': [ [ 'close' ] ] }
+
 augroup MyGutentagsStatusLineRefresher
     autocmd!
     autocmd User GutentagsUpdating call lightline#update()
