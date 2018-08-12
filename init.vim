@@ -23,7 +23,6 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('plasticboy/vim-markdown')
     call dein#add('tpope/vim-sensible')
     call dein#add('dracula/vim')
-    call dein#add('NLKNguyen/papercolor-theme')
     call dein#add('tpope/vim-surround')
     call dein#add('reedes/vim-pencil')
     call dein#add('jiangmiao/auto-pairs')
@@ -35,16 +34,21 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('Glench/Vim-Jinja2-Syntax')
     call dein#add('j5shi/taglist.vim')
     call dein#add('w0rp/ale')
+    call dein#add('itchyny/lightline.vim')
+    call dein#add('maximbaz/lightline-ale')
     call dein#add('sbdchd/neoformat')
     call dein#add('airblade/vim-gitgutter')
     call dein#add('Galooshi/vim-import-js')
     call dein#add('ludovicchabant/vim-gutentags')
-    call dein#add('itchyny/lightline.vim')
     call dein#add('Shougo/deoplete.nvim')
-    call dein#add('lifepillar/vim-solarized8')
     call dein#add('tpope/vim-repeat')
     call dein#add('pangloss/vim-javascript')
     call dein#add('mxw/vim-jsx')
+    call dein#add('pelodelfuego/vim-swoop')
+    " themes
+    call dein#add('NLKNguyen/papercolor-theme')
+    call dein#add('lifepillar/vim-solarized8')
+    call dein#add('nanotech/jellybeans.vim')
 
   " Required:
   call dein#end()
@@ -88,18 +92,14 @@ if has('persistent_undo')
 endif
 
 "EyeCandy
-colorscheme solarized8_dark
-"set background=dark
+colorscheme solarized8_dark_flat
 set termguicolors
 
 set noshowmode
-let g:lightline = {
-  \ 'colorscheme': 'solarized'
-\}
 
 let g:PaperColor_Theme_Options = {
     \   'theme': {
-    \     'default': {
+    \     'default.dark': {
     \       'transparent_background': 1
     \     }
     \   }
@@ -164,16 +164,42 @@ nnoremap <del> <nop>
 " neoformat
 noremap <C-l> :Neoformat eslint_d<CR>
 
+let g:lightline = {
+  \ 'colorscheme': 'solarized'
+\}
+
+let g:lightline.component_function = {
+      \   'gutentags': 'LightlineGutentags',
+      \   'gitbranch': 'LightlineGitBranch',
+      \ }
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
 " lightline
 let g:lightline.active = {
     \ 'left': [ [ 'mode', 'paste' ],
-    \           [ 'readonly', 'absolutepath', 'modified' ] ],
+    \           [ 'readonly', 'absolutepath', 'modified' ],
+    \           [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+    \           [ 'gitbranch' ]],
     \ 'right': [ [ 'lineinfo' ],
     \            [ 'percent' ],
+    \            [ 'gutentags' ],
     \          ]
     \ }
 let g:lightline.inactive = {
-    \ 'left': [ [ 'filename' ] ],
+    \ 'left': [ [ 'absolutepath' ], [ 'gitbranch' ] ],
     \ 'right': [ [ 'lineinfo' ],
     \            [ 'percent' ] ] }
 let g:lightline.tabline = {
@@ -186,4 +212,15 @@ augroup MyGutentagsStatusLineRefresher
     autocmd User GutentagsUpdated call lightline#update()
 augroup END
 
+function! LightlineGutentags() abort
+  return exists('b:gutentags_files') ? gutentags#statusline() : ''
+endfunction
+
+function! LightlineGitBranch() abort
+    return FugitiveStatusline()
+endfunction
+
 let g:deoplete#enable_at_startup = 1
+
+" vim swoop
+nmap <Leader>l :call Swoop()<CR>
