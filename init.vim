@@ -38,6 +38,7 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('maximbaz/lightline-ale')
     call dein#add('sbdchd/neoformat')
     call dein#add('airblade/vim-gitgutter')
+    call dein#add('mhinz/vim-signify')
     call dein#add('Galooshi/vim-import-js')
     call dein#add('ludovicchabant/vim-gutentags')
     call dein#add('Shougo/deoplete.nvim')
@@ -45,10 +46,14 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('pangloss/vim-javascript')
     call dein#add('mxw/vim-jsx')
     call dein#add('pelodelfuego/vim-swoop')
+    call dein#add('mhinz/vim-startify')
     " themes
     call dein#add('NLKNguyen/papercolor-theme')
     call dein#add('lifepillar/vim-solarized8')
     call dein#add('nanotech/jellybeans.vim')
+    call dein#add('rakr/vim-one')
+    call dein#add('rafi/awesome-vim-colorschemes')
+    call dein#add('mbbill/undotree')
 
   " Required:
   call dein#end()
@@ -68,6 +73,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set hlsearch
+set smartcase
+set ignorecase
 set visualbell
 nmap ; :
 vmap ; :
@@ -92,7 +99,7 @@ if has('persistent_undo')
 endif
 
 "EyeCandy
-colorscheme solarized8_dark_flat
+colorscheme jellybeans
 set termguicolors
 
 set noshowmode
@@ -118,7 +125,8 @@ call denite#custom#source(
 " use ag for content search
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-    \ ['-i', '--vimgrep', '--ignore-dir', '__tests__', '-C'])
+    \ ['-i', '--vimgrep', '--ignore-dir', '__tests__', '-C', '--ignore', 'tags', '--ignore', 'tags.temp', '--ignore', 'yarn.lock', '--ignore', 'package.json'])
+    "\ ['-i', '--vimgrep', '-C', '--ignore', 'tags', '--ignore', 'tags.temp', '--ignore', 'yarn.lock', '--ignore', 'package.json'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
@@ -162,10 +170,13 @@ nnoremap <tab> <nop>
 nnoremap <del> <nop>
 
 " neoformat
-noremap <C-l> :Neoformat eslint_d<CR>
+noremap <C-l> :ALEFix eslint<CR>
+
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_eslint_executable = 'eslint_d'
 
 let g:lightline = {
-  \ 'colorscheme': 'solarized'
+  \ 'colorscheme': 'jellybeans'
 \}
 
 let g:lightline.component_function = {
