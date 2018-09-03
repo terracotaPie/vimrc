@@ -4,15 +4,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/timurborkhodoev/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/timurborkhodoev/.cache/dein')
-    call dein#begin('/Users/timurborkhodoev/.cache/dein')
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
     " Let dein manage dein
     " Required:
-    call dein#add('/Users/timurborkhodoev/.cache/dein/repos/github.com/Shougo/dein.vim')
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('junegunn/goyo.vim')
@@ -54,6 +54,7 @@ if dein#load_state('/Users/timurborkhodoev/.cache/dein')
     call dein#add('rakr/vim-one')
     call dein#add('rafi/awesome-vim-colorschemes')
     call dein#add('mbbill/undotree')
+    call dein#add('luochen1990/rainbow')
 
   " Required:
   call dein#end()
@@ -172,7 +173,7 @@ nnoremap <del> <nop>
 " neoformat
 noremap <C-l> :ALEFix eslint<CR>
 
-let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_eslint_use_global = 0
 let g:ale_javascript_eslint_executable = 'eslint_d'
 
 let g:lightline = {
@@ -235,3 +236,5 @@ let g:deoplete#enable_at_startup = 1
 
 " vim swoop
 nmap <Leader>l :call Swoop()<CR>
+
+let g:rainbow_active = 1
