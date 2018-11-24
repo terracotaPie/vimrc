@@ -13,6 +13,7 @@ if dein#load_state('~/.cache/dein')
     " Let dein manage dein
     " Required:
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+    call dein#add('fatih/vim-go')
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('junegunn/goyo.vim')
@@ -41,7 +42,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('mhinz/vim-signify')
     call dein#add('Galooshi/vim-import-js')
     call dein#add('ludovicchabant/vim-gutentags')
-    call dein#add('Shougo/deoplete.nvim')
     call dein#add('tpope/vim-repeat')
     call dein#add('pangloss/vim-javascript')
     call dein#add('mxw/vim-jsx')
@@ -74,6 +74,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set hlsearch
+set incsearch
 set smartcase
 set ignorecase
 set visualbell
@@ -100,7 +101,7 @@ if has('persistent_undo')
 endif
 
 "EyeCandy
-colorscheme jellybeans
+colorscheme gruvbox
 set termguicolors
 
 set noshowmode
@@ -127,6 +128,7 @@ call denite#custom#source(
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
     \ ['-i', '--vimgrep', '--ignore-dir', '__tests__', '-C', '--ignore', 'tags', '--ignore', 'tags.temp', '--ignore', 'yarn.lock', '--ignore', 'package.json'])
+"call denite#custom#var('grep', 'default_opts',
     "\ ['-i', '--vimgrep', '-C', '--ignore', 'tags', '--ignore', 'tags.temp', '--ignore', 'yarn.lock', '--ignore', 'package.json'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
@@ -154,6 +156,11 @@ call denite#custom#map(
     \ 'noremap'
     \)
 
+call denite#custom#map(
+    \ 'insert', '<C-t>', '<denite:paste_from_register>', 'noremap')
+call denite#custom#map('insert', '<C-v>', '<denite:paste_from_register>', 'noremap')
+
+
 "HARDCORE
 nnoremap <left> <nop>
 nnoremap <right> <nop>
@@ -177,7 +184,7 @@ let g:ale_javascript_eslint_use_global = 0
 let g:ale_javascript_eslint_executable = 'eslint_d'
 
 let g:lightline = {
-  \ 'colorscheme': 'jellybeans'
+  \ 'colorscheme': 'gruvbox'
 \}
 
 let g:lightline.component_function = {
@@ -238,3 +245,5 @@ let g:deoplete#enable_at_startup = 1
 nmap <Leader>l :call Swoop()<CR>
 
 let g:rainbow_active = 1
+
+set hidden
