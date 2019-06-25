@@ -47,6 +47,8 @@ if dein#load_state('~/.cache/dein')
     call dein#add('mxw/vim-jsx')
     call dein#add('pelodelfuego/vim-swoop')
     call dein#add('mhinz/vim-startify')
+    call dein#add('jceb/vim-orgmode')
+    call dein#add('scrooloose/nerdtree.git')
     " themes
     call dein#add('NLKNguyen/papercolor-theme')
     call dein#add('lifepillar/vim-solarized8')
@@ -55,6 +57,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('rafi/awesome-vim-colorschemes')
     call dein#add('mbbill/undotree')
     call dein#add('luochen1990/rainbow')
+    call dein#add('herrbischoff/cobalt2.vim')
+    call dein#add('patstockwell/vim-monokai-tasty')
+    call dein#add('tpope/vim-sleuth')
 
   " Required:
   call dein#end()
@@ -70,6 +75,7 @@ syntax enable
 
 "End dein Scripts-------------------------
 
+set nofoldenable
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -101,21 +107,23 @@ if has('persistent_undo')
 endif
 
 "EyeCandy
-colorscheme gruvbox
+colorscheme solarized8
+set background=dark
 set termguicolors
+hi Normal guibg=NONE ctermbg=NONE
 
 set noshowmode
 
 let g:PaperColor_Theme_Options = {
     \   'theme': {
-    \     'default.dark': {
+    \     'dracula': {
     \       'transparent_background': 1
     \     }
     \   }
     \ }
 
 "Denite
-map <C-P> :DeniteProjectDir -buffer-name=git -direction=top file_rec/git<CR>
+map <C-P> :DeniteProjectDir -buffer-name=git -direction=top file/rec<CR>
 nnoremap <silent> <c-b> :Denite buffer<CR>
 
 " denite content search
@@ -136,11 +144,11 @@ call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
 " -u flag to unrestrict (see ag docs)
-call denite#custom#var('file_rec', 'command',
+call denite#custom#var('file/rec', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-u', '-g', ''])
 
-call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-call denite#custom#var('file_rec/git', 'command',
+call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+call denite#custom#var('file/rec/git', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
 
 call denite#custom#map(
@@ -184,7 +192,7 @@ let g:ale_javascript_eslint_use_global = 0
 let g:ale_javascript_eslint_executable = 'eslint_d'
 
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox'
+  \ 'colorscheme': 'one'
 \}
 
 let g:lightline.component_function = {
@@ -247,3 +255,5 @@ nmap <Leader>l :call Swoop()<CR>
 let g:rainbow_active = 1
 
 set hidden
+
+nmap <Leader>cp :let @*=expand("%:p")<CR>
